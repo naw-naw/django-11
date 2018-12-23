@@ -3,6 +3,8 @@ Lib
 Scripts
 .py[cod]
 muypicky/settings/local.py
+muypicky/settings/local2.py
+
 
 pip-selfcheck.json
 .DS_Store
