@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
-{% block head_title %} Menus||{{block.super}} {% endblock %}	
+{% block head_title %} Menus||{{ block.super }} {% endblock %}	
+
 {% block content %}
 
 <h1>Menu Items<small><a href="{% url 'menus:create' %}"> Add new item</a></small></h1>		 
 
-<ul>
+<div class='row'>
+{% for obj in object_list %} 
+	<div class='col-xs-4 {{ col_class_set }}'>
+		{% include "menus/item_thumbnail.html" with menu=obj %} <!-- price="True" %} -->
+	</div>
+
+	{% if not col_class_set %}
+	{% cycle '' '' '</div><div class="row">' %}
+	{% endif %}
+
+{% endfor %}	
+</div>
+
+
+<!-- <ul>
  	{% for obj in object_list %}
  		<li><a href="{{ obj.get_absolute_url }}">{{obj.name }}</a><br/>
 			{% if obj.contents %}
@@ -32,3 +47,4 @@
  </ul>
  
 {% endblock %}
+ -->

@@ -12,10 +12,7 @@ User=get_user_model()
 
 class ProfileFollowToggle(LoginRequiredMixin,View):
 	def post(self,request,*args,**kwargs):
-		# print(request.data)
-		# print(request.POST)
 		user_to_toggle=request.POST.get('username')
-		# print("user_to_toggle=====>",user_to_toggle)
 		profile_=Profile.objects.get(user__username__iexact=user_to_toggle)
 		user =request.user
 		if user in profile_.followers.all():
@@ -28,8 +25,7 @@ class ProfileDetailView(DetailView):
 	# queryset=User.objects.filter(is_active=True)
 	template_name='profiles/user.html'
 
-	def get_object(self):  #http://127.0.0.1:8000/u/naw/
-		# print('get_object called--->')
+	def get_object(self):  
 		username=self.kwargs.get('username')
 		if username is None:
 			raise Http404
@@ -37,28 +33,14 @@ class ProfileDetailView(DetailView):
 
 	def get_context_data(self,*args,**kwargs):
 		 context=super(ProfileDetailView,self).get_context_data(*args,**kwargs)
-		 print('==context===>',context)
-		 #user=self.get_object()
 		 user=context['user']
 		 query=self.request.GET.get('q')
 		 items_exists=Item.objects.filter(user=user).exists()
-		 print('==items_exists====>',items_exists)
 		 qs=RestaurantLocation.objects.filter(owner=user).search(query)
-		 print('=====qs in view======>',qs)
 		 # if query:
 		 # 	qs=qs.search(query)
 		 	# qs=RestaurantLocation.objects.search(query)
 		 if items_exists and qs.exists():
 		 	context['locations']=qs
 		 return context
-
-
-# http://127.0.0.1:8000/u/naw/
-# items_exists=Item.objects.filter(user=self.get_object())
-# print('item-user--->',items_exists)
-# qs=RestaurantLocation.objects.filter(owner=self.get_object())
-
-
-
-
 

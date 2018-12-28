@@ -1,1 +1,1 @@
-web: gunicorn muypicky.wsgi
+web: gunicorn myproj.wsgi

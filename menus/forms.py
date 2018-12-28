@@ -10,12 +10,13 @@ class ItemForm(forms.ModelForm):
 			'name',
 			'contents',
 			'excludes',
-			'public'
+			'public',
+			'image',
 		]
 		
 	#when http://127.0.0.1:8000/items/create/
 	def __init__(self,user=None,*args,**kwargs):
-		print('__init__ called===>')
+		print('__init__ called in ItemForm===>')
 		# print(kwargs.pop('user'))
 		# print('user in ItemForm===>',user)
 		#print('kwargs===>',kwargs)
@@ -28,6 +29,7 @@ class ItemForm(forms.ModelForm):
 #self.fields['restaurant'].queryset=RestaurantLocation.objects.filter(owner=user) #filter items owned by user, not owned by other user //.exclude(item__isnull=False)
 #when items/3/update, get item Name associated with 3,let you update 
 
-
 #self.fields['restaurant'].queryset=RestaurantLocation.objects.filter(owner=user).exclude(item__isnull=False)
 # this clear an item asscociated with restaurant name  when set exclude is_null 
+
+

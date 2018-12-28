@@ -1,8 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{% block head_title %} Muypicky {% endblock %}</title>
+	<title>{% block head_title %} lovefood {% endblock %}</title>
+	
 	{% include 'snippets/css.html' %}
 </head>
 
@@ -10,12 +13,25 @@
 {% include 'snippets/navbar.html' %}
 
 <div class="container">
-
+	{% if messages %}
+		<div class="alert alert-success messages">
+	    {% for message in messages %}
+	    <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+	        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+	        {{ message }}<br/>
+	    </span>
+	    {% endfor %}
+	  	</div>
+	{% endif %}
+	
 	{% block content%}
 
 	{% endblock %}
 </div>
 
 {% include 'snippets/js.html' %}
+
+
 </body>
 </html>
+

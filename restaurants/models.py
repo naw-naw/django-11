@@ -56,6 +56,7 @@ class RestaurantLocation(models.Model): #(app)restaurants_(model)restaurantlocat
 		return self.name  #==obj.title
 
 def rl_pre_save_receiver(sender,instance,*args,**kwargs):
+	print(" ......rl_pre_save_receiver called.......")
 	instance.category=instance.category.capitalize()
 	if not instance.slug: 	#generate slug as soon as creat new name for new object
 		instance.slug=unique_slug_generator(instance)

@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+
+{% block head_title %} Welcome||{{block.super}} Home {% endblock %}
+	
+{% block content %}
+
+<div class='container'>
+	<div class='col'>
+	<div class='jumbotron'>
+		<h1 style='color:blue'> Love Food</h1>
+		<p> Add your restaurant first, then add menu</p>
+		<p><a class='btn btn-default' href='{% url "restaurants:create" %}'> Add restaurant</a>
+		<a class='btn btn-primary' href='{% url "menus:create" %}'> Add menu</a></p>
+	</div>
+	</div>
+</div>
+{% endblock %}	
+<!-- 
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>script>
+
+<script src="js/bootstrap.js"></script>
+ -->

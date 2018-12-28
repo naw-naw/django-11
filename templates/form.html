@@ -1,18 +1,25 @@
 {% extends 'base.html' %}
-{% block head_title %} {{title}} ||{{block.super}} {% endblock %}	
+
+{% block head_title %} {{title}} ||{{ block.super}} {% endblock %}	
 
 {% block content %}
+
 <h1>{{title}} </h1>
 	
 	{% if form.errors %}
-	{{ form.errors }}
+		{{ form.errors }}
 	{% endif %}
-	<form method='POST' action="">
+	<div class='container'>
+  		<div class='row'>
+      	<div class='col-md-6 col-12 mx-auto'>
+		<form enctype='multipart/form-data' method='POST' action="">
 		{% csrf_token %}
-		
-		{{form.as_p}}
+		  {{ form.as_p }}
 		<button type='submit'>Submit</button>
-	</form><br/>
+	</form>
+</div>
+</div>
+</div>
 
 {% endblock %}
 
@@ -23,3 +30,4 @@
 <!-- 
 	{% include 'snippets/form-snippet.html' %}
  -->
+

@@ -1,9 +1,16 @@
 from django.conf import settings
 from django.db import models
 from django.core.urlresolvers import reverse
-
-# Create your models here.
+from django.utils.text import slugify
 from restaurants.models import RestaurantLocation
+
+def image_upload_to(instance,filename):  #filename=>iPhone 8,MP3 Player etc..
+	title=instance.name
+	print("filename in image_upload_to---->",filename)
+	slug=slugify(title)
+	basename, file_extension=filename.split(".")
+	new_filename="%s-%s.%s" %(slug, instance.id, file_extension)
+	return "items/%s/%s" %(slug, new_filename)
 
 class Item(models.Model):
 	user  		=models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -14,7 +21,7 @@ class Item(models.Model):
 	public 		=models.BooleanField(default=True)
 	timestamp	=models.DateTimeField(auto_now_add=True)
 	updated		=models.DateTimeField(auto_now=True)
-	#image
+	image 		=models.ImageField(upload_to=image_upload_to,blank=True)
 
 	def get_absolute_url(self):
 		return reverse('menus:detail', kwargs={'pk':self.pk})
@@ -30,5 +37,3 @@ class Item(models.Model):
 
 	def get_excludes(self):
 		return self.excludes.split(",")
-
-
