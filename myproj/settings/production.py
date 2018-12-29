@@ -28,7 +28,7 @@ ADMINS=MANAGERS
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = '%!%agky94xvwuyne=mxugegg2ac!x^qi&5!u1a4mbn&so8u0@q'
-SECRET_KEY =os.environ.get('SECRET_KEY','%!%agky94xvwuyne=mxugegg2ac!x^qi&5!u1a4mbn&so8u0@q'
+SECRET_KEY =os.environ.get('SECRET_KEY','%!%agky94xvwuyne=mxugegg2ac!x^qi&5!u1a4mbn&so8u0@q')
 # Application definition
 
 INSTALLED_APPS = [
