@@ -9,13 +9,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["fav-restaurant.herokuapp.com"]
+ALLOWED_HOSTS = ["love-menus.herokuapp.com"]
 
 EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
 EMAIL_HOSTS='smtp.gmail.com'
 EMAIL_HOST_USER='naw@gmail.com'
-# EMAIL_HOST_PASSWORD=''
 EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASSWORD')
+#EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASSWORD')
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 DEFAULT_FROM_EMAIL='<naw@gmail.com>'
@@ -28,7 +28,7 @@ ADMINS=MANAGERS
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = '%!%agky94xvwuyne=mxugegg2ac!x^qi&5!u1a4mbn&so8u0@q'
-SECRET_KEY =os.environ.get('SECRET_KEY','%!%agky94xvwuyne=mxugegg2ac!x^qi&5!u1a4mbn&so8u0@q')
+SECRET_KEY =os.environ.get('SECRET_KEY','%!%agky94xvwuyne=mxugegg2ac!x^qi&5!u1a4mbn&so8u0@q'
 # Application definition
 
 INSTALLED_APPS = [
