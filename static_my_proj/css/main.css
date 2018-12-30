@@ -26,6 +26,8 @@ body{
 	background-color:#64ADE5;
 	color:#fff;
 	height:50px;
+	weight:100%;
+
 }
 
 #navbar ul{
@@ -45,3 +47,4 @@ body{
 	padding-right:15px;
 	margin:5px 5px;
 }
+
