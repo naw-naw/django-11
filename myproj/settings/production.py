@@ -1,5 +1,7 @@
 import os
 
+from myproj.aws.conf import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) #note appended os.path.dirname for myproj's base.py
 
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'crispy_forms',
+    # 'storages',
     'menus',
     'profiles',
     'restaurants',
@@ -127,12 +130,21 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"static_my_proj"),
 ]
 
+STATIC_URL = '/static/'
+
 STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static_cdn","static_root")
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static_cdn","media_root")
 
-PROTECTED_ROOT=os.path.join(os.path.dirname(BASE_DIR), "static_cdn","protected_media")
+from myproj.aws.conf import 
+# PROTECTED_ROOT=os.path.join(os.path.dirname(BASE_DIR), "static_cdn","protected_media")
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+#Crispy FORM TAGs SETTINGS
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 CORS_REPLACE_HTTPS_REFERER      = False
 HOST_SCHEME                     = "http://"
@@ -144,27 +156,13 @@ SECURE_HSTS_SECONDS             = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,"static_my_proj"),
-]
-
-
-STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static_cdn","static_root")
-
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static_cdn","media_root")
-
-#Crispy FORM TAGs SETTINGS
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
 #DJANGO REGISTRATION REDUX SETTINGS
 # ACCOUNT_ACTIVATION_DAYS = 7
 # REGISTRATION_AUTO_LOGIN = True
 # SITE_ID = 1
 # LOGIN_REDIRECT_URL = '/'
 
+# AWS_GROUP_NAME="my-django-group"
+# AWS_USERNAME="awsbean"
+# AWS_ACCESS_KEY_ID="AKIAIWGRMXRTSXSUV6RA"
+# AWS_SECRET_KEY= "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"
