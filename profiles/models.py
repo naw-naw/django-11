@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from django.db.models.signals import post_save
-# Create your models here.
 
 User =settings.AUTH_USER_MODEL
 
@@ -31,16 +30,11 @@ class Profile(models.Model):
 		return self.user.username
 
 def post_save_user_receiver(sender,instance,created,*args,**kwargs):
-	#instance is user_7
 	if created:
 		profile,is_created=Profile.objects.get_or_create(user=instance)
-		print('profile---->',profile)
 		default_user_profile=Profile.objects.get_or_create(user__id=1)[0] #user=>naw
 		# default_user_profile.followers.add(instance)
-		print('default_user_profile====>',default_user_profile)
-		#profile----> user_7
-		#default_user_profile====> naw
-
+		
 post_save.connect(post_save_user_receiver,sender=User)			
 
 
