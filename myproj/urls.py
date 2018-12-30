@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.conf.urls.static import static
-
 from django.conf.urls import url,include
 from django.contrib import admin
 #from restaurants.views import HomeView #AboutView,ContactView #home,contact,about,
@@ -25,7 +24,6 @@ urlpatterns = [
 #  	url(r'^contact/$',TemplateView.as_view(template_name='contact_page.html'),name='contact'), 	
 ]
 
-# if settings.DEBUG:
-#     urlpatterns +=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
-#     urlpatterns +=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
-
+if settings.DEBUG:
+    urlpatterns +=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns +=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

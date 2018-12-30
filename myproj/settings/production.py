@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'crispy_forms',
-    # 'storages',
+    'storages',
     'menus',
     'profiles',
     'restaurants',
@@ -137,7 +137,7 @@ STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static_cdn","static_root")
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static_cdn","media_root")
 
-from myproj.aws.conf import 
+# from myproj.aws.conf import *
 # PROTECTED_ROOT=os.path.join(os.path.dirname(BASE_DIR), "static_cdn","protected_media")
 
 # Static files (CSS, JavaScript, Images)
@@ -161,8 +161,3 @@ SECURE_FRAME_DENY               = False
 # REGISTRATION_AUTO_LOGIN = True
 # SITE_ID = 1
 # LOGIN_REDIRECT_URL = '/'
-
-# AWS_GROUP_NAME="my-django-group"
-# AWS_USERNAME="awsbean"
-# AWS_ACCESS_KEY_ID="AKIAIWGRMXRTSXSUV6RA"
-# AWS_SECRET_KEY= "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"
