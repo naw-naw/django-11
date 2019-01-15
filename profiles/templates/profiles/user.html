@@ -6,15 +6,15 @@
 
 <h1>{{ user.username }}</h1>	
 {% if user.profile in request.user.is_following.all %}	 
-	Is following
+Is following
 {% endif %}
+
 <p> {% include 'profiles/snippets/follow_form.html' with username=user.username %}</p>
 <form class="form" method="GET" action=".">
 	<input type="text" placeholder="Search..." name="q" value="{{ request.GET.q }}">
 	<button class="btn btn-default" type="submit">Search</button>
 </form>
 <hr/>
-
 <!-- {% if user.item_set.all.exists %} -->
 	{% if locations %}
 		{% for rest in locations %}
@@ -22,7 +22,7 @@
 			<div class='col-sm-12'>
 				<div class='thumbnail'>
 					<h4>{{  rest.title }}</h4> 
-					<p><a href="{{ request.path }}?q={{rest.location}}"> {{rest.location}}</a> | <a href="{{ request.path }}?q={{rest.category}}"> {{rest.category}}</a>{{rest.category}}
+					<p><a href="{{ request.path }}?q={{rest.location}}"> {{rest.location}}</a> | <a href="{{ request.path }}?q={{rest.category}}"> {{ rest.category}}</a>{{rest.category}}
 					</p>
 					<p>
 						<b>Items</b>
@@ -44,7 +44,7 @@
 		{% endfor %}
 
 	{% else %}
-		<p class='lead'>No Items Found</p>
+	   <p class='lead'>No Items Found</p>
 	{% endif %}
 
 <!-- {% endif %}

@@ -1,10 +1,8 @@
 import os
-# from myproj.aws.conf import *
+from myproj.aws.conf import *
 
 import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-# DATABASES['default']['CONN_MAX_AGE'] = 500
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) #note appended os.path.dirname for myproj's base.py
@@ -159,3 +157,7 @@ SECURE_FRAME_DENY               = False
 # REGISTRATION_AUTO_LOGIN = True
 # SITE_ID = 1
 # LOGIN_REDIRECT_URL = '/'
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+# DATABASES['default']['CONN_MAX_AGE'] = 500

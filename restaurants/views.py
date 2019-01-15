@@ -31,8 +31,8 @@ class RestaurantDetailView(LoginRequiredMixin,DetailView):
 class RestaurantCreateView(LoginRequiredMixin, CreateView):
 	form_class=RestaurantLocationCreateForm  
 	template_name='form.html'      	#restaurants/
-	login_url='/login/'   			#this override LOGIN_URL in settings.py
-	# success_url='/restaurants/'
+	# login_url='/login/'   			#this override LOGIN_URL in settings.py
+	success_url='/restaurants/'
 
 	def form_valid(self,form):
 		instance=form.save(commit=False)
