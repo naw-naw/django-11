@@ -1,3 +1,4 @@
-To run this project
+My project structure
 
-Project folder => MyProj
+Project folder => myproj
+
