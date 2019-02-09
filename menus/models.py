@@ -6,7 +6,6 @@ from restaurants.models import RestaurantLocation
 
 def image_upload_to(instance,filename):  #filename=>iPhone 8,MP3 Player etc..
 	title=instance.name
-	print("filename in image_upload_to---->",filename)
 	slug=slugify(title)
 	basename, file_extension=filename.split(".")
 	new_filename="%s-%s.%s" %(slug, instance.id, file_extension)
