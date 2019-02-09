@@ -12,8 +12,8 @@ from .views import home_page,contact_page,about_page
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_page,name='home'),
-	url(r'^about/$', about_page,name='about'),
-	url(r'^contact/$', contact_page,name='contact'),
+    url(r'^about/$', about_page,name='about'),
+    url(r'^contact/$', contact_page,name='contact'),
     url(r'^$',TemplateView.as_view(template_name='home.html'),name='home'),
     url(r'^login/$', LoginView.as_view(),name='login'),
     url(r'^profile-follow/$',ProfileFollowToggle.as_view(),name='follow'),
