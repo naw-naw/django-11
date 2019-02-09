@@ -19,7 +19,7 @@ def unique_slug_generator(instance, new_slug=None):
         slug = new_slug
     else:
         slug = slugify(instance.title)
-        #print('slug-->',slug)
+    
     if slug in DONT_USE:  # create-eoxe, create-lb6i/
         new_slug = "{slug}-{randstr}".format(
                     slug=slug,
@@ -27,10 +27,8 @@ def unique_slug_generator(instance, new_slug=None):
                 )
         return unique_slug_generator(instance, new_slug=new_slug)
     Klass = instance.__class__
-    #print('Klass--->',Klass)
     qs_exists = Klass.objects.filter(slug=slug).exists()
     if qs_exists:
-        #print('qs_exists---->',qs_exists)
         new_slug = "{slug}-{randstr}".format(
                     slug=slug,
                     randstr=random_string_generator(size=4)
