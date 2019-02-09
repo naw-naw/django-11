@@ -1,17 +1,17 @@
 # import datetime
 
-# AWS_USERNAME="my_ecommerce"
-# AWS_GROUP_NAME="my_ecommerce_group"
+# AWS_USERNAME=""
+# AWS_GROUP_NAME=""
 
-# AWS_ACCESS_KEY_ID = "AKIAJ4D5PTYRHUDPB7JA"
-# AWS_SECRET_ACCESS_KEY = "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"
+# AWS_ACCESS_KEY_ID = ""
+# AWS_SECRET_ACCESS_KEY = ""
 # AWS_FILE_EXPIRE = 200
 # AWS_PRELOAD_METADATA = True
 # AWS_QUERYSTRING_AUTH = True
 
 # DEFAULT_FILE_STORAGE = 'myproj.aws.utils.MediaRootS3BotoStorage'
 # STATICFILES_STORAGE = 'myproj.aws.utils.StaticRootS3BotoStorage'
-# AWS_STORAGE_BUCKET_NAME = 'my-ecommerce-bucket'
+# AWS_STORAGE_BUCKET_NAME = ''
 # S3DIRECT_REGION = 'us-east-1'
 # S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 # MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
