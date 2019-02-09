@@ -13,20 +13,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["love-menus.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
 EMAIL_HOSTS='smtp.gmail.com'
-EMAIL_HOST_USER='naw@gmail.com'
+EMAIL_HOST_USER='myemail@gmail.com'
 EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASSWORD')
 #EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASSWORD')
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
-DEFAULT_FROM_EMAIL='<naw@gmail.com>'
+DEFAULT_FROM_EMAIL='<myemail@gmail.com>'
 BASE_URL ='127.0.0.1:8000'
 
 MANAGERS=(
-    ('James Aung', 'naw@gmail.com'),
+    ('James', 'myemail@gmail.com'),
 )
 ADMINS=MANAGERS
 
@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'crispy_forms',
-    # 'storages',
+    'crispy_forms',
+    'storages',
     'menus',
     'profiles',
     'restaurants',
