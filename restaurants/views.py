@@ -12,7 +12,7 @@ from .forms import RestaurantLocationCreateForm#,RestaurantCreateForm,
 
 class RestaurantListView(LoginRequiredMixin,ListView):
 	def get_queryset(self):
-		return RestaurantLocation.objects.filter(owner=self.request.user)  #only my restaurants(naw), or james if you loged in james
+		return RestaurantLocation.objects.filter(owner=self.request.user)  
 	# def get_queryset(self):
 	# 	slug=self.kwargs.get("slug")
 	# 	if slug:
@@ -30,15 +30,15 @@ class RestaurantDetailView(LoginRequiredMixin,DetailView):
 
 class RestaurantCreateView(LoginRequiredMixin, CreateView):
 	form_class=RestaurantLocationCreateForm  
-	template_name='form.html'      	#restaurants/
-	# login_url='/login/'   			#this override LOGIN_URL in settings.py
+	template_name='form.html'      	
+	# login_url='/login/'   			
 	success_url='/restaurants/'
 
 	def form_valid(self,form):
 		instance=form.save(commit=False)
 		instance.owner=self.request.user
 		# instance.save() 
-		return super(RestaurantCreateView,self).form_valid(form) # this calls form.save()
+		return super(RestaurantCreateView,self).form_valid(form) 
 
 	def get_context_data(self,*args,**kwargs):
 		context=super(RestaurantCreateView,self).get_context_data(*args,**kwargs)
@@ -47,10 +47,10 @@ class RestaurantCreateView(LoginRequiredMixin, CreateView):
 
 
 class RestaurantUpdateView(LoginRequiredMixin, UpdateView):
-	form_class=RestaurantLocationCreateForm  #modelForm class
-	template_name='form.html'      	#restaurants/
+	form_class=RestaurantLocationCreateForm  
+	template_name='form.html'      	
 	# template_name='restaurants/detail-update.html'
-	login_url='/login/'   			#this override LOGIN_URL in settings.py
+	login_url='/login/'   			
 	# success_url='/restaurants/'
 
 	def get_context_data(self,*args,**kwargs):
@@ -142,7 +142,6 @@ class RestaurantUpdateView(LoginRequiredMixin, UpdateView):
 
 # class ContactView(View):
 # 	def get(self,request,*args,**kwargs):
-# 		print("kwargs===>",kwargs)
 # 		context={
 # 		}
 # 		return render(request,"contact.html", context)
